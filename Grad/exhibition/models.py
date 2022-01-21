@@ -6,7 +6,7 @@ class Post(models.Model):
     #image
     #text
     #date
-
+    id=models.AutoField(primary_key=True)
     title=models.CharField(max_length=100)
     text=models.TextField(max_length=300, null=True)
     date=models.DateField()

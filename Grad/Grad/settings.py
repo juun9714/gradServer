@@ -52,6 +52,12 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
+#cors 해결
+#https://developer0809.tistory.com/92
+
 ROOT_URLCONF = 'Grad.urls'
 
 TEMPLATES = [
@@ -118,8 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+STATICFILES_DIRS = (
+    #This lets Django's collectstatic store our bundles
+    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'media'), 
+)
 
 
 MEDIA_URL = '/media/'
